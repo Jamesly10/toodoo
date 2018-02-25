@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+
   end
 
   # GET /tasks/new
@@ -46,13 +47,13 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       #format.html { redirect_to @task, notice: 'Task was successfully updated.' }
       format.html { redirect_to tasks_url }
-      format.json { render :show, status: :ok, location: @task }
+      format.json { render :status, :ok, location: @task }
     else
-      format.html { render :edit }
+      format.html { render :edit, :show}
       format.json { render json: @task.errors, status: :unprocessable_entity }
     end
   end
-end 
+end
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
